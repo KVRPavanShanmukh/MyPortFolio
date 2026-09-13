@@ -216,6 +216,44 @@ main {
   flex-wrap: wrap;
 }
 
+.hero-photo-frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 170px;
+  aspect-ratio: 4 / 5;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(6, 182, 212, 0.45);
+  border-radius: 28px;
+  background:
+    linear-gradient(145deg, rgba(6, 182, 212, 0.12), rgba(59, 130, 246, 0.03)),
+    rgba(255, 255, 255, 0.03);
+  box-shadow: 0 24px 70px rgba(6, 182, 212, 0.14);
+  overflow: hidden;
+  transform: translate(-50%, -50%) rotate(3deg);
+  z-index: 3;
+  animation: counter-rotate-photo 40s linear infinite;
+}
+
+.hero-photo-frame::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-photo-frame img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+}
+
 .primary-btn,
 .secondary-btn {
   padding: 14px 28px;
@@ -271,8 +309,16 @@ main {
   }
 }
 
+@keyframes rotate-orbit-mobile {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .orbit-card {
   position: absolute;
+  left: calc(50% + var(--orbit-x));
+  top: calc(50% + var(--orbit-y));
   padding: 12px 18px;
   border-radius: 16px;
   background: rgba(10, 10, 20, 0.75);
@@ -282,59 +328,118 @@ main {
   font-size: 14px;
   color: white;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  animation: counter-rotate-card 40s linear infinite, float-card 6s ease-in-out infinite;
+  animation: counter-rotate-card 40s linear infinite,
+    radial-drift var(--drift-duration) ease-in-out var(--drift-delay) infinite;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 @keyframes counter-rotate-card {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
   to {
-    transform: rotate(-360deg);
+    transform: translate(-50%, -50%) rotate(-360deg);
   }
 }
 
-@keyframes float-card {
+@keyframes counter-rotate-photo {
+  from {
+    transform: translate(-50%, -50%) rotate(3deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(-357deg);
+  }
+}
+
+@keyframes radial-drift {
 
   0%,
   100% {
+    margin-left: 0;
     margin-top: 0;
   }
 
   50% {
-    margin-top: -10px;
+    margin-left: var(--drift-x);
+    margin-top: var(--drift-y);
   }
 }
 
-/* Offset positions for Orbit Cards */
+/* Equal-radius positions around the portrait */
 .card-1 {
-  top: -20px;
-  left: calc(50% - 60px);
-  animation-delay: 0s;
+  --orbit-x: 0px;
+  --orbit-y: -225px;
+  --drift-x: 0px;
+  --drift-y: 18px;
+  --drift-duration: 5.8s;
+  --drift-delay: 0s;
   border-color: var(--cyan);
 }
 
 .card-2 {
-  right: -30px;
-  top: calc(50% - 20px);
-  animation-delay: 1.5s;
+  --orbit-x: 172px;
+  --orbit-y: -137px;
+  --drift-x: -14px;
+  --drift-y: 11px;
+  --drift-duration: 7.2s;
+  --drift-delay: -1.4s;
   border-color: var(--purple);
 }
 
 .card-3 {
-  bottom: -20px;
-  left: calc(50% - 60px);
-  animation-delay: 3s;
+  --orbit-x: 215px;
+  --orbit-y: 49px;
+  --drift-x: -17px;
+  --drift-y: -4px;
+  --drift-duration: 6.4s;
+  --drift-delay: -3.1s;
   border-color: var(--blue);
 }
 
 .card-4 {
-  left: -30px;
-  top: calc(50% - 20px);
-  animation-delay: 4.5s;
+  --orbit-x: 96px;
+  --orbit-y: 198px;
+  --drift-x: -8px;
+  --drift-y: -16px;
+  --drift-duration: 8.1s;
+  --drift-delay: -2.3s;
   border-color: var(--emerald);
 }
 
+.card-5 {
+  --orbit-x: -96px;
+  --orbit-y: 198px;
+  --drift-x: 8px;
+  --drift-y: -16px;
+  --drift-duration: 6.9s;
+  --drift-delay: -4.2s;
+  border-color: var(--amber);
+}
+
+.card-6 {
+  --orbit-x: -215px;
+  --orbit-y: 49px;
+  --drift-x: 17px;
+  --drift-y: -4px;
+  --drift-duration: 7.6s;
+  --drift-delay: -1.8s;
+  border-color: var(--cyan);
+}
+
+.card-7 {
+  --orbit-x: -172px;
+  --orbit-y: -137px;
+  --drift-x: 14px;
+  --drift-y: 11px;
+  --drift-duration: 5.5s;
+  --drift-delay: -3.6s;
+  border-color: var(--blue);
+}
+
 .orbit-card:hover {
-  border-color: white;
+  border-color: yellow;
   box-shadow: 0 10px 40px rgba(255, 255, 255, 0.1);
 }
 
@@ -684,8 +789,24 @@ main {
   gap: 6px;
 }
 
+.demo-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 28px;
+  color: var(--emerald);
+  text-decoration: none;
+  font-weight: 1000;
+  font-size: 14px;
+  transition: color 0.3s, gap 0.3s;
+}
+
 .project-link:hover {
   color: white;
+  gap: 10px;
+}
+
+.demo-link:hover {
+  color: var(--cyan);
   gap: 10px;
 }
 
@@ -716,6 +837,34 @@ main {
   font-size: 20px;
   font-weight: 800;
   letter-spacing: -0.02em;
+}
+
+.institution-heading,
+.cert-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.institution-logo,
+.cert-logo {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  padding: 7px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.cert-logo {
+  width: 56px;
+  height: 56px;
+}
+
+.cert-photo {
+  padding: 0;
+  object-fit: cover;
 }
 
 .timeline-item p {
@@ -767,7 +916,7 @@ main {
 .cert-card h3 {
   font-family: var(--font-heading);
   font-size: 18px;
-  margin-top: 8px;
+  margin-top: 12px;
   font-weight: 800;
 }
 
@@ -1005,9 +1154,14 @@ footer a:hover {
     right: auto;
     top: auto;
     transform: none;
+    animation-name: rotate-orbit-mobile;
     margin: 60px auto 0;
     width: 320px;
     height: 320px;
+  }
+
+  .hero-photo-frame {
+    width: min(130px, 40vw);
   }
 
   .orbit-card {
@@ -1016,23 +1170,38 @@ footer a:hover {
   }
 
   .card-1 {
-    top: -15px;
-    left: calc(50% - 40px);
+    --orbit-x: 0px;
+    --orbit-y: -160px;
   }
 
   .card-2 {
-    right: -20px;
-    top: calc(50% - 15px);
+    --orbit-x: 122px;
+    --orbit-y: -98px;
   }
 
   .card-3 {
-    bottom: -15px;
-    left: calc(50% - 40px);
+    --orbit-x: 153px;
+    --orbit-y: 35px;
   }
 
   .card-4 {
-    left: -20px;
-    top: calc(50% - 15px);
+    --orbit-x: 68px;
+    --orbit-y: 141px;
+  }
+
+  .card-5 {
+    --orbit-x: -68px;
+    --orbit-y: 141px;
+  }
+
+  .card-6 {
+    --orbit-x: -153px;
+    --orbit-y: 35px;
+  }
+
+  .card-7 {
+    --orbit-x: -122px;
+    --orbit-y: -98px;
   }
 
   .stats {
