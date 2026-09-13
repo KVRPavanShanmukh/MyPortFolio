@@ -854,7 +854,9 @@ main {
   object-fit: contain;
   padding: 7px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.92);
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: 0 5px 14px rgba(15, 23, 42, 0.1);
 }
 
 .cert-logo {
@@ -863,7 +865,7 @@ main {
 }
 
 .cert-photo {
-  padding: 0;
+  padding: 4px;
   object-fit: cover;
 }
 
