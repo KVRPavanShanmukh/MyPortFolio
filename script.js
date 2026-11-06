@@ -35,10 +35,10 @@ form.addEventListener("submit", async (e) => {
       form.reset();
     } else {
       statusText.textContent = result.message || "Something went wrong. Try again.";
-      statusText.style.color = "#ff4f4f";
+      statusText.style.color = "#dc2626";
     }
   } catch (error) {
     statusText.textContent = "Server error. Please try later.";
-    statusText.style.color = "#ff4f4f";
+    statusText.style.color = "#dc2626";
   }
 });
