@@ -26,9 +26,9 @@
   --cyan-glow: rgba(2, 132, 199, 0.12);
   --cyan-subtle: #f0f9ff;
 
-  --purple: #7c3aed;
-  --purple-glow: rgba(124, 58, 237, 0.12);
-  --purple-subtle: #f5f3ff;
+  --rose: #e11d48;
+  --rose-glow: rgba(225, 29, 72, 0.12);
+  --rose-subtle: #fff1f2;
 
   --emerald: #059669;
   --emerald-glow: rgba(5, 150, 105, 0.12);
@@ -40,7 +40,7 @@
   --amber-subtle: #fffbeb;
 
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  --gradient-primary: linear-gradient(135deg, #2563eb 0%, #e11d48 100%);
   --gradient-accent: linear-gradient(135deg, #0284c7 0%, #059669 100%);
 
   /* Typography */
@@ -62,7 +62,7 @@ body {
   font-family: var(--font-body);
   background:
     radial-gradient(circle at 12% 8%, rgba(37, 99, 235, 0.05), transparent 35%),
-    radial-gradient(circle at 88% 14%, rgba(124, 58, 237, 0.04), transparent 40%),
+    radial-gradient(circle at 88% 14%, rgba(225, 29, 72, 0.04), transparent 40%),
     radial-gradient(circle at 50% 60%, rgba(2, 132, 199, 0.03), transparent 45%),
     radial-gradient(circle at 80% 90%, rgba(5, 150, 105, 0.03), transparent 40%),
     var(--bg);
@@ -88,7 +88,7 @@ body {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, rgba(124, 58, 237, 0.02) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, rgba(225, 29, 72, 0.02) 40%, transparent 70%);
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 0;
@@ -223,7 +223,7 @@ main {
 }
 
 .hero h1 span {
-  background: linear-gradient(135deg, #0f172a 15%, #2563eb 60%, #7c3aed 100%);
+  background: linear-gradient(135deg, #0f172a 15%, #2563eb 60%, #e11d48 100%);
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -418,8 +418,8 @@ main {
   --drift-y: 11px;
   --drift-duration: 7.2s;
   --drift-delay: -1.4s;
-  border-color: #c4b5fd;
-  color: #6d28d9;
+  border-color: #fda4af;
+  color: #be123c;
 }
 
 .card-3 {
@@ -664,8 +664,8 @@ main {
 }
 
 .cat-devops span {
-  background-color: var(--purple);
-  box-shadow: 0 0 8px rgba(124, 58, 237, 0.4);
+  background-color: var(--rose);
+  box-shadow: 0 0 8px rgba(225, 29, 72, 0.4);
 }
 
 .cat-cs span {
@@ -727,14 +727,14 @@ main {
 }
 
 .cat-devops .skill-card:hover {
-  border-color: rgba(124, 58, 237, 0.4);
-  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.12);
+  border-color: rgba(225, 29, 72, 0.4);
+  box-shadow: 0 10px 25px rgba(225, 29, 72, 0.12);
   transform: translateY(-3px);
-  background: var(--purple-subtle);
+  background: var(--rose-subtle);
 }
 
 .cat-devops .skill-card:hover svg {
-  color: var(--purple);
+  color: var(--rose);
 }
 
 .cat-cs .skill-card:hover {
@@ -816,8 +816,8 @@ main {
 }
 
 .featured {
-  background: linear-gradient(135deg, #f0f7ff 0%, #f5f3ff 100%);
-  border-color: #c7d2fe;
+  background: linear-gradient(135deg, #f0f7ff 0%, #fff1f2 100%);
+  border-color: #fecdd3;
 }
 
 .featured:hover {
