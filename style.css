@@ -386,6 +386,7 @@ main {
 }
 
 @keyframes radial-drift {
+
   0%,
   100% {
     margin-left: 0;
@@ -709,6 +710,7 @@ main {
   transform: translateY(-3px);
   background: var(--cyan-subtle);
 }
+
 .cat-lang .skill-card:hover svg {
   color: var(--cyan);
 }
@@ -719,6 +721,7 @@ main {
   transform: translateY(-3px);
   background: var(--blue-subtle);
 }
+
 .cat-fw .skill-card:hover svg {
   color: var(--blue);
 }
@@ -729,6 +732,7 @@ main {
   transform: translateY(-3px);
   background: var(--purple-subtle);
 }
+
 .cat-devops .skill-card:hover svg {
   color: var(--purple);
 }
@@ -739,6 +743,7 @@ main {
   transform: translateY(-3px);
   background: var(--amber-subtle);
 }
+
 .cat-cs .skill-card:hover svg {
   color: var(--amber);
 }
@@ -771,7 +776,7 @@ main {
   pointer-events: none;
 }
 
-.project-card > * {
+.project-card>* {
   position: relative;
   z-index: 2;
 }
@@ -1025,6 +1030,7 @@ main {
   box-shadow: 0 15px 35px rgba(15, 23, 42, 0.12);
   border-color: #0f172a;
 }
+
 .profile-card:nth-child(1):hover .profile-link-btn {
   color: #0f172a;
 }
@@ -1033,6 +1039,7 @@ main {
   box-shadow: 0 15px 35px rgba(0, 119, 181, 0.18);
   border-color: #0077b5;
 }
+
 .profile-card:nth-child(2):hover .profile-link-btn {
   color: #0077b5;
 }
@@ -1041,6 +1048,7 @@ main {
   box-shadow: 0 15px 35px rgba(255, 161, 22, 0.2);
   border-color: #ffa116;
 }
+
 .profile-card:nth-child(3):hover .profile-link-btn {
   color: #d97706;
 }
@@ -1049,6 +1057,7 @@ main {
   box-shadow: 0 15px 35px rgba(208, 155, 105, 0.2);
   border-color: #d09b69;
 }
+
 .profile-card:nth-child(4):hover .profile-link-btn {
   color: #8b5e34;
 }
@@ -1057,6 +1066,7 @@ main {
   box-shadow: 0 15px 35px rgba(49, 140, 189, 0.2);
   border-color: #318cbd;
 }
+
 .profile-card:nth-child(5):hover .profile-link-btn {
   color: #318cbd;
 }
